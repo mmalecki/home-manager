@@ -152,7 +152,7 @@ in
     EDITOR = "nvim";
   };
 
-  home.sessionPath = ["$HOME/.cargo/bin" "$HOME/bin" "$HOME/dev/dot/shellsauce/bin" ];
+  home.sessionPath = ["$HOME/.cargo/bin" "$HOME/.npm/bin" "$HOME/bin" "$HOME/dev/dot/shellsauce/bin" ];
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
