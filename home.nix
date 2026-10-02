@@ -55,7 +55,7 @@ in
   services.swayidle = 
   let
     lock = "${pkgs.swaylock}/bin/swaylock --daemonize";
-    display = status: "${pkgs.sway}/bin/swaymsg 'output * power ${status}'";
+    display = status: "${pkgs.niri}/bin/niri msg action power-${status}-monitors";
   in
   {
     enable = true;
