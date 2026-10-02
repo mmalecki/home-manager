@@ -2,6 +2,7 @@
 
 let
   llama = builtins.getFlake "github:ggml-org/llama.cpp/v0.5.0";
+  unstable = import <nixpkgs-unstable> {};
 in
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -28,6 +29,7 @@ in
     tree-sitter
     opencode
     glow
+    unstable.bun
 
     # Desktop
     swayidle
