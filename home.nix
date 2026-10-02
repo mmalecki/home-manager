@@ -27,7 +27,6 @@ in
     rustup
     espup
     tree-sitter
-    opencode
     glow
     unstable.bun
 
