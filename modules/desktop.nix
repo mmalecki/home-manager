@@ -2,13 +2,9 @@
 
 let
   cfg = config.my.desktop;
-  llama = builtins.getFlake "github:ggml-org/llama.cpp/v0.5.0";
 in
 {
-  options.my.desktop = {
-    enable = lib.mkEnableOption "niri desktop environment";
-    llama.enable = lib.mkEnableOption "llama.cpp ROCm build";
-  };
+  options.my.desktop.enable = lib.mkEnableOption "niri desktop environment";
 
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
@@ -20,8 +16,7 @@ in
       remmina
       wl-clipboard
       wtype
-    ] ++ lib.optional cfg.llama.enable
-      llama.packages.${pkgs.stdenv.hostPlatform.system}.rocm;
+    ];
 
     programs.fuzzel.enable = true;
     programs.password-store.enable = true;

@@ -5,10 +5,11 @@
     ./modules/base.nix
     ./modules/dev.nix
     ./modules/desktop.nix
+    ./modules/llm-inference.nix
   ];
 
-  # Per-machine switches. On a desktop-less box, drop these two lines
+  # Per-machine switches. On a box without these, drop the lines
   # (or set them to false).
   my.desktop.enable = true;
-  my.desktop.llama.enable = true;
+  my.llmInference.enable = true;
 }
