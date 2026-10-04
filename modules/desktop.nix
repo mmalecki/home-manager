@@ -16,6 +16,7 @@ in
       remmina
       wl-clipboard
       wtype
+      imagemagick
     ];
 
     programs.fuzzel.enable = true;
