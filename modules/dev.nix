@@ -2,6 +2,12 @@
 
 let
   unstable = import <nixpkgs-unstable> {};
+  gcloudWithComponents = pkgs.google-cloud-sdk.withExtraComponents (
+    with pkgs.google-cloud-sdk.components; [
+      gke-gcloud-auth-plugin
+      kubectl
+    ]
+  );
 in
 {
   home.packages = with pkgs; [
@@ -11,6 +17,10 @@ in
     tree-sitter
     glow
     unstable.bun
+    jq
+    gcloudWithComponents
+    tfenv
+    gh
   ];
 
   programs.fish.enable = true;
@@ -31,6 +41,7 @@ in
 
   home.sessionVariables = {
     EDITOR = "nvim";
+    TFENV_CONFIG_DIR = "$HOME/.local/share/tfenv";
   };
 
   home.sessionPath = [
