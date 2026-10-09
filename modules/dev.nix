@@ -21,15 +21,32 @@ in
     gcloudWithComponents
     tfenv
     gh
+    feh
   ];
 
-  programs.fish.enable = true;
+  programs.fish = {
+    enable = true;
+    shellAliases = {
+      gsw = "git switch";
+      gco = "git checkout";
+    };
+
+    shellAbbrs = {
+      "g" = "git";
+    };
+  };
 
   programs.git = {
     enable = true;
     settings.user = {
       name  = "Maciej Małecki";
       email = "me@mmalecki.com";
+    };
+    settings.pull = {
+      rebase = true;
+    };
+    settings.push = {
+      autoSetupRemote = true;
     };
   };
 
