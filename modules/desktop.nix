@@ -17,6 +17,8 @@ in
       wl-clipboard
       wtype
       imagemagick
+      xournalpp
+      gimp
     ];
 
     programs.fuzzel.enable = true;
@@ -57,9 +59,9 @@ in
     };
     services.polkit-gnome.enable = true;
 
-    xdg.configFile."niri/config.kdl".source = ../niri/config.kdl;
-    xdg.configFile."niri/bg.jpg".source = ../niri/bg.jpg;
-    xdg.configFile."waybar/config.jsonc".source = ../niri/waybar.jsonc;
+    xdg.configFile."niri/config.kdl".source = ./desktop/config.kdl;
+    xdg.configFile."niri/bg.jpg".source = ./desktop/bg.jpg;
+    xdg.configFile."waybar/config.jsonc".source = ./desktop/waybar.jsonc;
 
     systemd.user.services.swaybg = {
       Unit.Description = "Desktop background";
