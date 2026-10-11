@@ -29,6 +29,7 @@ in
     shellAliases = {
       gsw = "git switch";
       gco = "git checkout";
+      gst = "git status";
     };
 
     shellAbbrs = {
@@ -45,8 +46,14 @@ in
     settings.pull = {
       rebase = true;
     };
+    settings.rebase = {
+      autostash = true;
+    };
     settings.push = {
       autoSetupRemote = true;
+    };
+    settings.init = {
+      defaultBranch = "latest";
     };
   };
 
@@ -59,6 +66,9 @@ in
   home.sessionVariables = {
     EDITOR = "nvim";
     TFENV_CONFIG_DIR = "$HOME/.local/share/tfenv";
+
+    DOCKERSAND_SSH = "1";
+    DOCKERSAND_GCLOUD = "1";
   };
 
   home.sessionPath = [
