@@ -69,6 +69,7 @@ in
 
     DOCKERSAND_SSH = "1";
     DOCKERSAND_GCLOUD = "1";
+    DOCKERSAND_GH = "1";
   };
 
   home.sessionPath = [
