@@ -71,8 +71,8 @@ in
     TFENV_CONFIG_DIR = "$HOME/.local/share/tfenv";
 
     DOCKERSAND_SSH = "1";
-    DOCKERSAND_GCLOUD = "1";
     DOCKERSAND_GH = "1";
+    #DOCKERSAND_GCLOUD = "1";
   };
 
   home.sessionPath = [
