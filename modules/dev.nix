@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 let
-  unstable = import <nixpkgs-unstable> {};
+  unstable = import <nixpkgs-unstable> { config.allowUnfree = true; };
   gcloudWithComponents = pkgs.google-cloud-sdk.withExtraComponents (
     with pkgs.google-cloud-sdk.components; [
       gke-gcloud-auth-plugin
@@ -10,6 +10,8 @@ let
   );
 in
 {
+  nixpkgs.config.allowUnfree = true;
+
   home.packages = with pkgs; [
     ripgrep
     rustup
@@ -20,6 +22,7 @@ in
     jq
     gcloudWithComponents
     tfenv
+    packer
     gh
     feh
   ];
