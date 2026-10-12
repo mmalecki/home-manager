@@ -62,6 +62,21 @@ in
 
   services.ssh-agent.enable = true;
 
+  systemd.user.services.ssh-add = {
+    Unit = {
+      Description = "Load SSH keys into agent";
+      Requires = [ "ssh-agent.service" ];
+      After = [ "ssh-agent.service" ];
+    };
+    Install.WantedBy = [ "default.target" ];
+    Service = {
+      Type = "oneshot";
+      RemainAfterExit = true;
+      Environment = [ "SSH_AUTH_SOCK=%t/ssh-agent" ];
+      ExecStart = "${pkgs.openssh}/bin/ssh-add";
+    };
+  };
+
   xdg.configFile."nvim".source =
     config.lib.file.mkOutOfStoreSymlink
       "${config.home.homeDirectory}/dev/dot/nvimsauce";
