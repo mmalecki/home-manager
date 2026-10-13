@@ -46,6 +46,9 @@ in
     in
     {
       enable = true;
+      # swayidle's -w waits until swaylock has secured the session and daemonized
+      # before releasing the sleep inhibitor, including lid/menu suspends.
+      events.before-sleep = lock;
       timeouts = [
         {
           timeout = 300;
