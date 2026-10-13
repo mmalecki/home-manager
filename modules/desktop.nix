@@ -19,6 +19,7 @@ in
       imagemagick
       xournalpp
       gimp
+      feh
     ];
 
     programs.fuzzel.enable = true;
