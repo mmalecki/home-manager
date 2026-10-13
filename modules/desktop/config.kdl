@@ -265,10 +265,6 @@ layout {
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
 
-environment {
-    DISPLAY ":0"
-}
-
 // spawn-at-startup "sh" "-c" "swayidle -w timeout 300 'swaylock -f -c 000000' before-sleep 'swaylock -f -c 000000'"
 
 spawn-at-startup "nm-applet"
