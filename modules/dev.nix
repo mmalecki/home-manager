@@ -26,6 +26,7 @@ in
     gh
     feh
     tmux
+    cmake
   ];
 
   programs.fish = {
