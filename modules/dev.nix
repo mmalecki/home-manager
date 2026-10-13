@@ -25,6 +25,7 @@ in
     packer
     gh
     feh
+    tmux
   ];
 
   programs.fish = {
