@@ -66,9 +66,14 @@ in
     xdg.configFile."niri/config.kdl".source = ./desktop/config.kdl;
     xdg.configFile."niri/bg.jpg".source = ./desktop/bg.jpg;
     xdg.configFile."waybar/config.jsonc".source = ./desktop/waybar.jsonc;
+    xdg.configFile."waybar/power_menu.xml".source = ./desktop/power_menu.xml;
 
     systemd.user.services.swaybg = {
-      Unit.Description = "Desktop background";
+      Unit = {
+        Description = "Desktop background";
+        After = [ "graphical-session.target" ];
+        PartOf = [ "graphical-session.target" ];
+      };
       Install.WantedBy = [ "graphical-session.target" ];
       Service = {
         ExecStart = "${pkgs.swaybg}/bin/swaybg -m fill -i %h/.config/niri/bg.jpg";
