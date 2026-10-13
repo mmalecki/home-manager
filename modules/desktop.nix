@@ -28,6 +28,10 @@ in
       systemd.enable = true;
     };
     programs.swaylock.enable = true;
+    xdg.userDirs = {
+      enable = true;
+      createDirectories = true;
+    };
 
     services.swayidle =
     let
