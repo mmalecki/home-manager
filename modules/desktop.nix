@@ -22,6 +22,12 @@ in
     ];
 
     programs.fuzzel.enable = true;
+    home.pointerCursor = {
+      package = pkgs.adwaita-icon-theme;
+      name = "Adwaita";
+      size = 24;
+      gtk.enable = true;
+    };
     programs.password-store.enable = true;
     programs.waybar = {
       enable = true;
