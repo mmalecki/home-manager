@@ -60,6 +60,9 @@ in
     settings.init = {
       defaultBranch = "latest";
     };
+    settings.safe = {
+      directory = ["/etc/nixos"];
+    };
   };
 
   services.ssh-agent.enable = true;
