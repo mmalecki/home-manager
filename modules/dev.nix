@@ -13,20 +13,24 @@ in
   nixpkgs.config.allowUnfree = true;
 
   home.packages = with pkgs; [
+    tmux
     ripgrep
-    rustup
-    espup
     tree-sitter
     glow
-    unstable.bun
     jq
+    gh
+    bubblewrap
+
+    rustup
+    espup
+    unstable.bun
+
     gcloudWithComponents
     tfenv
     packer
-    gh
-    feh
-    tmux
+
     cmake
+    gnumake
   ];
 
   programs.fish = {
