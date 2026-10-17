@@ -379,8 +379,8 @@ binds {
     XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
 
     // Example brightness key mappings for brightnessctl.
-    XF86MonBrightnessUp allow-when-locked=true { spawn "brightness" "up"; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn "brightness" "down"; }
+    XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "-e2" "set" "+5%"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "-e2" "set" "5%-"; }
 
     // Open/close the Overview: a zoomed-out view of workspaces and windows.
     // You can also move the mouse into the top-left hot corner,
