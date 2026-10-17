@@ -20,6 +20,7 @@ in
       xournalpp
       gimp
       feh
+      f3d
     ];
 
     programs.fuzzel.enable = true;
