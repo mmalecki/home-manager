@@ -6,6 +6,13 @@ in
 {
   options.my.desktop.enable = lib.mkEnableOption "niri desktop environment";
 
+  options.my.desktop.modKey = lib.mkOption {
+    type = lib.types.str;
+    default = "Super";
+    example = "Alt";
+    description = "niri's Mod key; set to Alt in VMs where the host grabs Super.";
+  };
+
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
       swayidle
@@ -74,7 +81,10 @@ in
     };
     services.polkit-gnome.enable = true;
 
-    xdg.configFile."niri/config.kdl".source = ./desktop/config.kdl;
+    xdg.configFile."niri/config.kdl".text = builtins.replaceStrings
+      [ "mod-key \"Super\"" ]
+      [ "mod-key \"${cfg.modKey}\"" ]
+      (builtins.readFile ./desktop/config.kdl);
     xdg.configFile."niri/bg.jpg".source = ./desktop/bg.jpg;
     xdg.configFile."waybar/config.jsonc".source = ./desktop/waybar.jsonc;
     xdg.configFile."waybar/power_menu.xml".source = ./desktop/power_menu.xml;
