@@ -102,6 +102,7 @@ in
   home.sessionPath = [
     "$HOME/.cargo/bin"
     "$HOME/.npm/bin"
+    "$HOME/.local/bin"
     "$HOME/bin"
     "$HOME/dev/dot/shellsauce/bin"
   ];
