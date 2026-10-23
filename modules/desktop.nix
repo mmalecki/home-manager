@@ -28,6 +28,8 @@ in
       gimp
       feh
       f3d
+      darktable
+      prusa-slicer
     ];
 
     programs.fuzzel.enable = true;
