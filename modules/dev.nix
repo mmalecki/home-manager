@@ -20,10 +20,13 @@ in
     jq
     gh
     bubblewrap
+    dig
 
     rustup
     espup
     unstable.bun
+    go
+    gcc
 
     gcloudWithComponents
     tfenv
